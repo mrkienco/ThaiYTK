@@ -1,0 +1,15 @@
+<div ng-controller="KeysController">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid" style="padding-top: 20px; padding-bottom: 10px;">
+            <div class="container">
+                <h3>Quản lý keys</h3>
+                <p>Mỗi nick chỉ được một lượng ký tự gửi lên nhất định. Hãy đăng ký nhiều nick, tạo keys và dán vào bên dưới nhấn lưu. Các keys không dùng được nữa làm ơn xóa đi</p>
+                <p>Truy cập <a href="https://dev.openfpt.vn/">https://dev.openfpt.vn</a>    để tạo keys</p>
+            </div>
+        </div>
+        <div>
+            <textarea name="" id="" cols="30" rows="10" class="form-control" ng-model="keys"></textarea>
+            <button class="btn btn-primary" style="margin:10px; float:right"  ng-click="save()">Lưu</button>
+        </div>
+    </div>
+</div>

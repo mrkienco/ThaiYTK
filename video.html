@@ -1,0 +1,69 @@
+<div ng-controller="VideoController">
+    <div class="container">
+        <div class="jumbotron" style="padding-top: 20px; padding-bottom: 10px;">
+            <div class="container">
+                <h3>Tạo video</h3>
+                <p>Đặt tên ảnh theo thứ tự 000.png 001.png 002.png</p>
+                <p>Chọn thời gian hiện một ảnh</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formControlRange">Chọn một thư mục:</label>
+                    <button ng-click="openFolderDialog()" class="btn btn-default">Duyệt</button> {{folder}}
+                </div>
+                <div class="form-group">
+                    <label for="formControlRange">Chọn thời gian hiện ảnh:</label>
+                    <input type="number" min="1" class="form-control" ng-model="time">
+                </div>
+                <div class="form-group">
+                    <label for="formControlRange">FPS:</label>
+                    <input type="number" min="1" class="form-control" ng-model="fps">
+                </div>
+                
+                <div class="form-group">
+                    <label for="formControlRange">Định dạng ảnh:</label>
+                    <select name="" class="form-control" id="" ng-model="format">
+                        <option value="jpg">JPG</option>
+                        <option value="png">PNG</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="formControlRange">Kích thước:</label>
+                    <select name="" class="form-control" id="" ng-model="dimension">
+                        <option value="1920x1080">1920 x 1080 (16:9)</option>
+                        <option value="1280x720">1280 x 720</option>
+                        <option value="1024x576">1024 x 576</option>
+                        <option value="768x432">768 x 432</option>
+                        <option value="512x288">512 x 288</option>
+                        <option value="256x144">256 x 144</option>
+                        <option value="640x480">640 x 480 (4:3)</option>
+                        <option value="576x432">576 x 432</option>
+                        <option value="512x384">512 x 384</option>
+                        <option value="448x336">448 x 336</option>
+                        <option value="384x288">384 x 288</option>
+                        <option value="256x192">256 x 192</option>
+                        <option value="192x144">192 x 144</option>
+                        <option value="128x96">128 x 96</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+            
+        <div class="row">
+            <div class="col">
+                <div class="pull-right">
+                    <button class="btn btn-primary pull-right" ng-click="save()">Run</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="border-radius: 5px; background-color: #333333; margin-top: 10px; padding:10px 5px; min-height:300px; color: white"
+                id="result">
+                <p ng-bind-html="result"></p>
+            </div>
+        </div>
+    </div>
+</div>

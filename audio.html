@@ -1,0 +1,62 @@
+<div ng-controller="AudioController">
+    <div class="container">
+        <div class="jumbotron jumbotron-fluid" style="padding-top: 20px; padding-bottom: 10px;">
+            <div class="container">
+                <h3>Tạo audio</h3>
+                <p><strong>Voice:</strong> Xác định các giọng đọc, voice có các giá trị là leminh (giọng nam miền bắc),
+                    male (giọng nam miền bắc), female (giọng nữ miền bắc), hatieumai (giọng nữ miền nam), ngoclam
+                    (giọng nữ Huế)</p>
+                <p><strong>Speed:</strong> Điều chỉnh tốc độ đọc (chỉ áp dụng với các voice male, female, hatieumai,
+                    ngoclam). Giá trị từ -3 đến 3 để xác định tốc độ đọc: -3 (rất chậm) / -2 (khá chậm) / -1 (chậm) / 0
+                    (bình thường) / 1 (nhanh) / 2 (khá nhanh) / 3 (rất nhanh)</p>
+                <p><strong>Prosody:</strong> Thêm ngữ điệu cho câu hỏi (chỉ áp dụng với voice male). Để kích hoạt chức
+                    năng này, thay đổi giá trị thành 1</p>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col">
+                <div class="form-group">
+                    <label for="formControlRange">Chọn một thư mục:</label>
+                    <button ng-click="openFolderDialog()" class="btn btn-default">Duyệt</button> {{folder}}
+                </div>
+                <div class="form-group">
+                    <label for="formControlRange">Nhập văn bản</label>
+                    <textarea name="input_text" id="" cols="30" rows="10" style="width: 100%;" ng-model="input_text">
+
+                    </textarea>
+                </div>
+                <div class="form-group">
+                    <label for="formControlRange">Chọn giọng</label>
+                    <select class="form-control" name="voice" ng-model="voice">
+                        <option value={{voice}} ng-repeat="voice in voices">{{voice}}</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="formControlRange">Tốc độ đọc</label>
+                    <input type="range" class="form-control-range" id="formControlRange" name="speed" max="3" min="-3"
+                        value="0" ng-model="speed">
+                </div>
+                <div class="form-group">
+                    <input class="" type="checkbox" value="" id="defaultCheck1" name="prosody" ng-model="prosody">
+                    <label class="" for="defaultCheck1" ng-model="prosody">
+                        Ngữ điệu cho câu hỏi
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <div class="pull-right">
+                    <button class="btn btn-primary pull-right" ng-click="save()">Run</button>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col" style="border-radius: 5px; background-color: #333333; margin-top: 10px; padding:10px 5px; min-height:300px; color: white"
+                id="result">
+                <p ng-bind-html="result"></p>
+            </div>
+        </div>
+    </div>
+</div>

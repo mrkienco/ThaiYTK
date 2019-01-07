@@ -1,0 +1,46 @@
+<div class="container">
+    <div class="jumbotron jumbotron-fluid" style="padding-top: 20px; padding-bottom: 10px;">
+        <div class="container">
+        <h2>Help</h2>
+        </div>
+    </div>
+    <div>
+        <h3>Crawler data</h3>
+        <div>python .\crawler\crawler.py tao-hoa-chi-vuong 1 2689</div>
+
+        <h3>Tạo file start</h3>
+        
+        <h3>Nối file và ghép nhạc nền</h3>
+        <div>Cần có start.mp3 và end.mp3 </div>
+        <div>python .\app.py start_end ../data/tao-hoa-chi-vuong hatieumai -1</div>
+
+        <h3>Tạo file video</h3>
+        <div>python .\video_maker.py tao-hoa-chi-vuong 2601 2640 10</div>
+
+        <h3>Cấu trúc cmd</h3>
+        <div>1. npm start : Mở phần mềm check tiến độ</div>
+        <div>2. crawl data: Lấy text từ web khác</div>
+        <div>3. audio maker chapter: Tải về từng chương</div>
+        <div>4. image maker: tạo ảnh</div>
+        <div>5. start end</div>
+        <div>6. audio concat + background: nối các chương và nhạc nền</div>
+        <div>7. video maker</div>
+        <div>8. upload</div>
+
+
+        <div>
+            ffmpeg -i full.mp3 -filter_complex "amovie=Lau_Tzu_Ehru.mp3:loop=0,asetpts=N/SR/TB[beep];[0][beep]amix=duration=shortest,volume=10,dynaudnorm"   out.mp3
+            <br/>
+
+            ffmpeg -i Lau_Tzu_Ehru.mp3 -filter:a "volume=0.5" background.mp3
+            <br/>
+            python app.py concat ../data/bach-bao-tong-quan 1 760 10
+            <br/>
+            python .\audio_maker.py co-giao-mon-van hatieumai 1 90
+            <br/>
+            python .\image_maker.py cau-chuyen-doi-toi
+            <br/>
+            python app.py start_end ../data/cau-chuyen-doi-toi male -1
+        </div>
+    </div>
+</div>

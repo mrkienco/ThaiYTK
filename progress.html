@@ -1,0 +1,43 @@
+<style>
+    .font-10 {
+        font-size: 10px;
+    }
+</style>
+<div ng-controller="ProgressController">
+    <div class="container">
+            <div class="jumbotron" style="padding-top: 20px; padding-bottom: 10px;">
+                <div class="container">
+                    <h2>{{project.name}}</h2>
+                    <h3>website: {{project.website}}, Start chapter: {{project.start_chapter}}, Lastest chapter: {{project.lastest_chapter}}</h3>
+                    <h3><span ng-bind-html="mother_image"></span>, <span ng-bind-html="start_mp3"></span>, <span ng-bind-html="end_mp3"></span></h3>
+                </div>
+            </div>
+        </div>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th></th>
+                    <th>Crawler ({{count.crawler}} / {{project.lastest_chapter - project.start_chapter + 1}})</th>
+                    <th>Image ({{count.image}} / {{number_videos}})</th>
+                    <th>Audio ({{count.audio}} / {{project.lastest_chapter - project.start_chapter  + 1}})</th>
+                    <th>Audio concat ({{count.audio_concat}} / {{number_videos}})</th>
+                    <th>Audio Background ({{count.audio_background}} / {{number_videos}})</th>
+
+                    <th>Video ({{count.video}} / {{number_videos}})</th>
+                    <th>Youtube Upload ({{percent.crawler}} % 100)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="item in progress">
+                    <td>{{item.chapter}}</td>
+                    <td ng-bind-html="item.crawler"></td>
+                    <td ng-bind-html="item.image"></td>
+                    <td ng-bind-html="item.audio"></td>
+                    <td ng-bind-html="item.audio_concat"></td>
+                    <td ng-bind-html="item.audio_background"></td>
+                    <td ng-bind-html="item.video"></td>
+                    <td>Doe</td>
+                </tr>
+            </tbody>
+        </table>
+</div>
