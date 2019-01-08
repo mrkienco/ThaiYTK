@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['video_maker.py'],
-             pathex=['C:\\Workshop\\YTTool'],
+             pathex=['C:\\Workshop\\ThaiKIT'],
              binaries=[],
              datas=[],
              hiddenimports=[],

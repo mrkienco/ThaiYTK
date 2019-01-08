@@ -87,13 +87,14 @@ app.controller('VideoController', function($scope, $location) {
     }
     $scope.time = 1;
     $scope.format = "jpg";
+    $scope.opacity = 0.25;
 
     $scope.save = function() {
         if(! $scope.folder) {
             return;
         }
         console.log('render video');
-        var runall    = spawn('video_maker.exe', [$scope.folder, $scope.time, $scope.format, $scope.fps, $scope.dimension]); //, { cwd: "app" }
+        var runall    = spawn('video_maker.exe', [$scope.folder, $scope.time, $scope.format, $scope.fps, $scope.dimension, $scope.opacity]); //, { cwd: "app" }
         $scope.result = '> run all <br/>';
         runall.stdout.on('data', function (data) {
             console.log('stdout: ' + data.toString());
