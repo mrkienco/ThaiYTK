@@ -14,7 +14,9 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC 
 import urllib.request
-
+from pydub import AudioSegment
+startTime = 2000
+endTime = -2500
 
 keys = open('keys.txt', 'r').read().split()
 
@@ -98,6 +100,13 @@ def download(path, voice=voice, speed=speed, prosody=prosody):
                     try:
                         print("downloading file {}/{} ".format(i+1, len(wraptexts)), "{}\{:03}.mp3".format(path, i))
                         wget.download(file, "{}/{:03}.mp3".format(path, i))
+
+                        if type != 'fpt':
+                            song = AudioSegment.from_mp3("{}/{:03}.mp3".format(path, i))
+                            extract = song[startTime:endTime]
+
+                            # Saving
+                            extract.export("{}/{:03}.mp3".format(path, i), format="mp3")
                         count2 = 0
                         count = 0
                         break
