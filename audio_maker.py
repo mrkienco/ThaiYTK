@@ -86,12 +86,13 @@ def download(path, voice=voice, speed=speed, prosody=prosody):
                     textarea = driver.find_element_by_class_name("ant-input")
                     textarea.clear()
                     textarea.send_keys(text)
-
+                    driver.find_element(By.XPATH, '//*[@id="root"]/div/div/div/div/div/div/div[2]/div[2]/div[1]/div/div/div').click()
+                    driver.find_element(By.XPATH, f'//li[contains(text(),"{voice}")]').click()
                     button = driver.find_element_by_class_name("ant-btn")
                     button.click()
-
+                    
                     xp = '//*[@download]'
-                    element = WebDriverWait(driver, 5000).until(EC.presence_of_element_located((By.XPATH, xp)))
+                    element = WebDriverWait(driver, 500000).until(EC.presence_of_element_located((By.XPATH, xp)))
                     file = element.get_attribute('href')
                 count2 = 0
                 while True:

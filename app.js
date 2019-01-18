@@ -41,7 +41,8 @@ app.controller('KeysController', function($scope, $location) {
     }
 });
 app.controller('AudioController', function($scope, $location) {
-    $scope.voices = ['male', 'female', 'hatieumai', 'ngoclam', 'leminh', 'vbee'];
+    // $scope.voices = ['male', 'female', 'hatieumai', 'ngoclam', 'leminh', 'vbee'];
+    $scope.voices = ['Mạnh Dũng (Nam HN)', 'Mai Phương (Nữ HN)', 'Nhất Nam (Nam Sài Gòn)', 'Thùy Linh (Nữ HN)', 'Lan Trinh (Nữ Sài Gòn)'];
 
     $scope.result = '>';
     $scope.voice = "female";
